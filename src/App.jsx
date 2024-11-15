@@ -4,6 +4,7 @@ const App = () => {
   return (
     <div>
       <h1 className="text-peachred">Hello, React!</h1>
+      <p>Latihan branch dari achmad</p>
       <p>Hello, React!</p>
       <p className='font-raleway'>Hello, React!</p>
       <p>Ini dari branch Sandy</p>
