@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"; // Import React and hooks
+import DOMPurify from "dompurify"; // Import DOMPurify to sanitize input
 import LoginModal from "../components/LoginModal"; // Import LoginModal component
 import { login, register } from "../utils/api"; // Import API functions for login and registration
 
@@ -29,9 +30,12 @@ const Login = ({ setToken }) => {
 
   // Update form state when input fields change
   const handleChange = (e) => {
+    // Sanitize the input to prevent XSS attacks
+    const sanitizedValue = DOMPurify.sanitize(e.target.value);
+    
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
+      [e.target.name]: sanitizedValue, // Update form state with sanitized value
     });
   };
 
@@ -49,11 +53,8 @@ const Login = ({ setToken }) => {
       ? { username: form.username, password: form.password }
       : { username: form.username, password: form.password, name: form.name, role: form.role };
 
-    console.log("Form Data:", formData); // Log form data for debugging
-
     authAction(formData) // Call appropriate API function
       .then((res) => {
-        console.log("Response received:", res); // Log response for debugging
         if (isLogin) {
           const token = res.token;
           localStorage.setItem("token", token); // Store token in localStorage
