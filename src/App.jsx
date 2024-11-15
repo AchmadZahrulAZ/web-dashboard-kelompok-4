@@ -7,6 +7,7 @@ const App = () => {
       <p>Latihan branch dari achmad</p>
       <p>Hello, React!</p>
       <p className='font-raleway'>Hello, React!</p>
+      <p className='font-raleway'>Hello, Oryza here!</p>
       <p>Ini dari branch Sandy</p>
     </div>
   );
