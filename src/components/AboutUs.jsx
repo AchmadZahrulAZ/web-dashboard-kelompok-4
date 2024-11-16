@@ -29,10 +29,10 @@ export default function AboutUs() {
 
     const { title, desc, imageUrl } = formData;
     const formDataToSend = new FormData();
-    formDataToSend.append("title", title);
-    formDataToSend.append("desc", desc);
+    formDataToSend.set("title", title);
+    formDataToSend.set("desc", desc);
     if (imageUrl) {
-      formDataToSend.append("imageUrl", imageUrl);
+      formDataToSend.set("imageUrl", imageUrl);
     }
 
     const token = localStorage.getItem("token");

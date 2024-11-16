@@ -5,6 +5,7 @@ import Sidebar from "../components/Sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AboutUs from "../components/AboutUs";
 import Home from "../components/Home";
+import Article from "../components/Article";
 
 const Dashboard = ({ token, setToken }) => {
   const [loading, setLoading] = useState(false); // State to track loading state
@@ -32,10 +33,11 @@ const Dashboard = ({ token, setToken }) => {
       {error && <div className="error-message">{error}</div>} {/* Show error message if any */}
       <div className="flex justify-between items-start">
         <Sidebar />
-        <div className="flex flex-col w-full justify-center px-16 py-6 ">
+        <div className="flex flex-col w-full justify-center px-16 py-6">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/article" element={<Article />} />
           </Routes>
         </div>
       </div>

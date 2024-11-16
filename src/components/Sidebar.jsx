@@ -51,7 +51,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="flex flex-col left-0 w-56 h-screen">
+    <div className="flex flex-col left-0 w-56">
       <div className="fixed flex flex-col gap-4 p-6">
         <Link to="/">
         <div onClick={resetLinkClick} className="text-md text-peachred/[0.85] hover:text-peachred font-bold">Dashboard</div>
