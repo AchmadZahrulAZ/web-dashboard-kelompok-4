@@ -35,7 +35,7 @@ const Dashboard = ({ token, setToken }) => {
         <div className="flex flex-col w-full justify-center px-16 py-6 ">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<AboutUs />} />
+            <Route path="/about" element={<AboutUs token={token} />} />
           </Routes>
         </div>
       </div>

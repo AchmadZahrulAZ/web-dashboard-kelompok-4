@@ -45,7 +45,7 @@ const useAboutUs = () => {
     try {
       const response = await axios.put(`${API_URL}/api/about-us`, data, {
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
         },
       });

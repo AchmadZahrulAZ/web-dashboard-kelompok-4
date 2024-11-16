@@ -1,43 +1,30 @@
 import React, { useState } from "react";
 import useAboutUs from "../hooks/useAbout";
 
-export default function AboutUs() {
+export default function AboutUs({token}) {
   const { dataAbout, error, postData, updateData } = useAboutUs();
-  const [formData, setFormData] = useState({
-    title: "",
-    desc: "",
-    imageUrl: null,
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   const handleFileChange = (e) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      imageUrl: e.target.files[0],
-    }));
+   setImageUrl(e.target.files[0]);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { title, desc, imageUrl } = formData;
-    const formDataToSend = new FormData();
-    formDataToSend.append("title", title);
-    formDataToSend.append("desc", desc);
-    if (imageUrl) {
-      formDataToSend.append("imageUrl", imageUrl);
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("desc", desc);
+    formData.append("image", imageUrl);
+
+    // IF DATA EXIST THEN UPDATE ELSE POST
+    if (dataAbout) {
+      await updateData(formData, token);
+    } else {
+      await postData(formData, token);
     }
-
-    const token = localStorage.getItem("token");
-
-    await postData(formDataToSend, token);
   };
 
   return (
@@ -61,8 +48,8 @@ export default function AboutUs() {
               className="border border-gray-300 min-h-12 rounded-lg"
               name="title"
               id="title"
-              value={formData.title}
-              onChange={handleChange}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
             />
           </div>
           <div className="flex flex-col flex-grow">
@@ -73,21 +60,21 @@ export default function AboutUs() {
               style={{ resize: "none" }}
               name="desc"
               id="desc"
-              value={formData.desc}
-              onChange={handleChange}
+              value={desc}
+              onChange={(e) => setDesc(e.target.value)}
               className="min-h-12 max-h-12 border border-gray-300 rounded-lg"
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="imageUrl" className="text-md font-bold mb-2">
+            <label htmlFor="image" className="text-md font-bold mb-2">
               Image
             </label>
             <div className="flex justify-center items-center border border-gray-300 rounded-lg min-h-12">
               <input
                 type="file"
+                name="image"
+                id="image"
                 accept=".jpg, .jpeg, .png"
-                name="imageUrl"
-                id="imageUrl"
                 onChange={handleFileChange}
                 className="px-2 file file:right-0 file:bg-darkblue file:text-white file:border-none file:rounded-lg file:px-2 file:py-1 file:mr-2 file:cursor-pointer"
               />
