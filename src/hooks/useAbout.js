@@ -28,16 +28,8 @@ const useAboutUs = () => {
       console.log("Data submitted successfully:", response.data);
       await fetchData();
     } catch (error) {
-      if (error.response) {
-        console.error("Server responded with an error:");
-        console.error("Status:", error.response.status);
-        console.error("Data:", error.response.data);
-      } else if (error.request) {
-        console.error("No response received from server:", error.request);
-      } else {
-        console.error("Error setting up the request:", error.message);
-      }
-      setError(error.response?.data?.message || error.message);
+      console.error("Error submitting data:", error);
+      setError(error.message);
     }
   };
 

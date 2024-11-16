@@ -36,3 +36,4 @@ export const logout = async (token) => {
   );
   return res.data;
 };
+

@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AboutUs from "../components/AboutUs";
 import Home from "../components/Home";
-import Article from "../components/Article";
+import Teams from "../components/Teams"
 
 const Dashboard = ({ token, setToken }) => {
   const [loading, setLoading] = useState(false); // State to track loading state
@@ -36,8 +36,8 @@ const Dashboard = ({ token, setToken }) => {
         <div className="flex flex-col w-full justify-center px-16 py-6">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/article" element={<Article />} />
+            <Route path="/about" element={<AboutUs token={token} />} />
+            <Route path="/teams" element={<Teams token={token} />} />
           </Routes>
         </div>
       </div>
