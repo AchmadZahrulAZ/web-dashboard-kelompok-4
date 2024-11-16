@@ -19,12 +19,8 @@ export default function AboutUs({token}) {
     formData.append("desc", desc);
     formData.append("image", imageUrl);
 
-    // IF DATA EXIST THEN UPDATE ELSE POST
-    if (dataAbout) {
-      await updateData(formData, token);
-    } else {
-      await postData(formData, token);
-    }
+    await postData(formData, token);
+    await updateData(formData, token);
   };
 
   return (
@@ -92,9 +88,9 @@ export default function AboutUs({token}) {
       {/* ERROR MESSAGE */}
       {error && <div className="text-red-500">{error}</div>}
       {/* PREVIEW */}
+      <h1 className="text-2xl font-bold mb-4">Preview:</h1>
       {dataAbout && (
         <div>
-          <h1 className="text-xl font-bold">Preview:</h1>
           <div className="flex justify-center items-center gap-4 py-10">
             <div className="w-96 h-auto rounded-lg overflow-hidden">
               <img src={dataAbout.imageUrl} alt="About Us" />

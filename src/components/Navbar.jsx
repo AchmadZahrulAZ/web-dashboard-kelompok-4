@@ -4,7 +4,7 @@ export default function Navbar({ logout, loading }) {
   return (
     <nav className="mb-4">
       <div className="px-6 py-6">
-        <div className="fixed top-0 left-0 py-3 px-6 bg-white/[.6] backdrop-blur-sm w-full flex justify-between items-center">
+        <div className="fixed z-10 top-0 left-0 py-3 px-6 bg-white/[.6] backdrop-blur-sm w-full flex justify-between items-center">
             <h1 className="text-xl font-bold">LOGO</h1>
           <ul className="flex gap-2">
             <li>
