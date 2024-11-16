@@ -16,13 +16,14 @@ const Dashboard = ({ token, setToken }) => {
       .then(() => {
         setToken(null); // Clear token in state
         localStorage.removeItem("token"); // Remove token from localStorage
-      })
-      .catch((err) => {
+    })
+    .catch((err) => {
         setError(err.message); // Set error state if an error occurs
-      })
-      .finally(() => {
+    })
+    .finally(() => {
         setLoading(false); // Stop loading state
-      });
+    });
+    console.log(token); // Log token from localStorage
   };
 
   return (

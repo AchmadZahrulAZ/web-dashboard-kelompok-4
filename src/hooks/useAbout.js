@@ -17,20 +17,38 @@ const useAboutUs = () => {
     }
   };
 
-  const postData = async (data) => {
+  const postData = async (data, token) => {
     try {
-      const response = await axios.post(`${API_URL}/api/about-us`, data)
+      const response = await axios.post(`${API_URL}/api/about-us`, data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      });
       console.log("Data submitted successfully:", response.data);
       await fetchData();
     } catch (error) {
-      console.error("Error submitting data:", error);
-      setError(error.message);
+      if (error.response) {
+        console.error("Server responded with an error:");
+        console.error("Status:", error.response.status);
+        console.error("Data:", error.response.data);
+      } else if (error.request) {
+        console.error("No response received from server:", error.request);
+      } else {
+        console.error("Error setting up the request:", error.message);
+      }
+      setError(error.response?.data?.message || error.message);
     }
   };
 
-  const updateData = async (data) => {
+  const updateData = async (data, token) => {
     try {
-      const response = await axios.put(`${API_URL}/api/about-us`, data)
+      const response = await axios.put(`${API_URL}/api/about-us`, data, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
       console.log("Data updated successfully:", response.data);
       await fetchData();
     } catch (error) {

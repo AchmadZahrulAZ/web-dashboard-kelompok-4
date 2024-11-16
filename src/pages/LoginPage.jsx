@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"; // Import React and hooks
 import DOMPurify from "dompurify"; // Import DOMPurify to sanitize input
 import LoginModal from "../components/LoginModal"; // Import LoginModal component
 import { login, register } from "../utils/api"; // Import API functions for login and registration
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.bundle.min.js"
 
 const Login = ({ setToken }) => {
   const [isLogin, setIsLogin] = useState(true); // State to toggle between login and register mode

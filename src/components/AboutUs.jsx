@@ -30,17 +30,14 @@ export default function AboutUs() {
     const { title, desc, imageUrl } = formData;
     const formDataToSend = new FormData();
     formDataToSend.append("title", title);
-    formDataToSend.append("description", desc);
+    formDataToSend.append("desc", desc);
     if (imageUrl) {
-      formDataToSend.append("image", imageUrl);
+      formDataToSend.append("imageUrl", imageUrl);
     }
 
-    // IF DATA EXIST THEN UPDATE ELSE POST
-    if (dataAbout) {
-      await updateData(formDataToSend);
-    } else {
-      await postData(formDataToSend);
-    }
+    const token = localStorage.getItem("token");
+
+    await postData(formDataToSend, token);
   };
 
   return (
@@ -82,14 +79,15 @@ export default function AboutUs() {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="image" className="text-md font-bold mb-2">
+            <label htmlFor="imageUrl" className="text-md font-bold mb-2">
               Image
             </label>
             <div className="flex justify-center items-center border border-gray-300 rounded-lg min-h-12">
               <input
                 type="file"
-                name="image"
-                id="image"
+                accept=".jpg, .jpeg, .png"
+                name="imageUrl"
+                id="imageUrl"
                 onChange={handleFileChange}
                 className="px-2 file file:right-0 file:bg-darkblue file:text-white file:border-none file:rounded-lg file:px-2 file:py-1 file:mr-2 file:cursor-pointer"
               />
