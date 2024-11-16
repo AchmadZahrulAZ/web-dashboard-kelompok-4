@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AboutUs from "../components/AboutUs";
 import Home from "../components/Home";
 import Teams from "../components/Teams"
+import Testimonial from "../components/Testimonial";
 import Contact from "../components/Contact";
 import SubscribeEmail from "../components/SubscribeEmail";
 
@@ -40,6 +41,7 @@ const Dashboard = ({ token, setToken }) => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs token={token} />} />
             <Route path="/teams" element={<Teams token={token} />} />
+            <Route path="/testimonial" element={<Testimonial token={token} />} />
             <Route path="/contact" element={<Contact token={token} />} />
             <Route path="/subscribe" element={<SubscribeEmail token={token} />} />
           </Routes>
