@@ -14,7 +14,6 @@ module.exports = {
       blackshade: '#252525',
       offwhite: '#F7F7F7',
       white: '#FFFFFF',
-      whitecstm: '#FFFFFF',
     },
   },
   plugins: [],
