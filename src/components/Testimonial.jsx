@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import useTestimonial from "../hooks/useTestimonial";
 import Button from "./Buttons/Button";
 
-export default function AboutUs({ token }) {
+export default function Testimonial({ token }) {
   const { dataTestimonial, error, loading, postData, updateData, deleteData } = useTestimonial();
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");
@@ -128,14 +128,14 @@ export default function AboutUs({ token }) {
           </div>
           <div className="flex flex-col">
             <label htmlFor="image" className="text-md font-bold mb-2">
-              Image <span className="font-light">(max: 1MB)</span>
+              Image <span className="font-light">(max: 500kb)</span>
             </label>
             <div className="flex justify-center items-center border border-gray-300 rounded-lg min-h-12">
               <input
                 type="file"
                 name="image"
                 id="image"
-                accept=".jpg, .jpeg, .png"
+                accept=".jpg, .jpeg, .png, .webp"
                 onChange={handleFileChange}
                 className={`px-2 file file:right-0 ${isEdit ? "file:bg-peachred" : "file:bg-darkblue"} file:text-white file:border-none file:rounded-lg file:px-2 file:py-1 file:mr-2 file:cursor-pointer`}
               />
@@ -200,7 +200,7 @@ export default function AboutUs({ token }) {
                         <h1 className="text-lg text-peachred font-bold text-center">
                           {testimoni.name}
                         </h1>
-                        <h1 className="text-base">{testimoni.title}</h1>
+                        <h1 className="text-sm">{testimoni.title}</h1>
                         <h1 className="text-sm">{testimoni.date}</h1>
                         <h1 className="text-base text-center">&quot;{testimoni.message}&quot;</h1>
                       </div>

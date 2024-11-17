@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import useTeams from "../hooks/useTeams";
 import Button from "./Buttons/Button";
 
-export default function AboutUs({ token }) {
+export default function Teams({ token }) {
   const { dataTeams, error, loading, postData, updateData, deleteData } = useTeams();
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");
@@ -101,7 +101,7 @@ export default function AboutUs({ token }) {
                 type="file"
                 name="image"
                 id="image"
-                accept=".jpg, .jpeg, .png"
+                accept=".jpg, .jpeg, .png, .webp"
                 onChange={handleFileChange}
                 className={`px-2 file file:right-0 ${isEdit ? "file:bg-peachred" : "file:bg-darkblue"} file:text-white file:border-none file:rounded-lg file:px-2 file:py-1 file:mr-2 file:cursor-pointer`}
               />
@@ -166,7 +166,7 @@ export default function AboutUs({ token }) {
                         <h1 className="text-lg text-peachred font-bold text-center">
                           {team.name}
                         </h1>
-                        <h1 className="text-md">{team.title}</h1>
+                        <h1 className="text-sm">{team.title}</h1>
                       </div>
                     </div>
                   </div>
