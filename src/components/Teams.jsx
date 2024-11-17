@@ -60,7 +60,7 @@ export default function Teams({ token }) {
       <div>
         <div>
           <h1 className="text-2xl font-bold mb-4">Teams</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+          <p>Kenali orang-orang hebat di balik kesuksesan kami</p>
         </div>
         {/* FORM INPUT */}
         <form

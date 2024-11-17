@@ -56,7 +56,7 @@ export default function Expertise({ token }) {
       <div>
         <div>
           <h1 className="text-2xl font-bold mb-4">Expertise</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+          <p>Ketahui keahlian khusus kami dalam berbagai bidang industri</p>
         </div>
         {/* FORM INPUT */}
         <form
