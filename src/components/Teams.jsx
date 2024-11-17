@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import useTeams from "../hooks/useTeams";
 import Button from "./Buttons/Button";
 
-export default function AboutUs({ token }) {
+export default function Teams({ token }) {
   const { dataTeams, error, loading, postData, updateData, deleteData } = useTeams();
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");

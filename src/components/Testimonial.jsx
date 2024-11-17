@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import useTestimonial from "../hooks/useTestimonial";
 import Button from "./Buttons/Button";
 
-export default function AboutUs({ token }) {
+export default function Testimonial({ token }) {
   const { dataTestimonial, error, loading, postData, updateData, deleteData } = useTestimonial();
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");
