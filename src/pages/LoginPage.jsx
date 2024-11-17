@@ -5,7 +5,7 @@ import { login, register } from "../utils/api"; // Import API functions for logi
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
 
-const Login = ({ setToken }) => {
+const Login = ({ setToken, setUsername }) => {
   const [isLogin, setIsLogin] = useState(true); // State to toggle between login and register mode
   const [form, setForm] = useState({
     username: "",
@@ -59,8 +59,10 @@ const Login = ({ setToken }) => {
       .then((res) => {
         if (isLogin) {
           const token = res.token;
+          const username = form.username;
           localStorage.setItem("token", token); // Store token in localStorage
           setToken(token); // Set token in parent component's state
+          setUsername(username); // Set username in parent component's state
         } else {
           alert("Register success"); // Notify user about successful registration
           setIsLogin(true); // Switch back to Login form

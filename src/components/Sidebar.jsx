@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({ showSidebar }) => {
   const [activeLink, setActiveLink] = useState("");
   const navLinks = [
     {
@@ -51,8 +51,8 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="flex flex-col left-0 w-56">
-      <div className="fixed flex flex-col gap-4 p-6">
+    <div className={`${showSidebar ? "flex z-10": "hidden"} lg:flex flex-col left-0 lg:w-56`}>
+      <div className="fixed flex bg-white h-screen flex-col gap-4 p-6">
         <Link to="/">
         <div onClick={resetLinkClick} className="text-md text-peachred/[0.85] hover:text-peachred font-bold">Dashboard</div>
         </Link>
