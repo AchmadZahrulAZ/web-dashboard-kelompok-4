@@ -77,7 +77,7 @@ export default function AboutUs({token}) {
               />
             </div>
           </div>
-          {/* sUBMIT BUTTON */}
+          {/* SUBMIT BUTTON */}
           <Button type="submit" text="Submit" className={"bg-darkblue"} />
         </form>
       </div>

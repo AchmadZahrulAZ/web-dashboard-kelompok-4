@@ -8,6 +8,7 @@ import Article from "../components/Article"
 import Home from "../components/Home";
 import Teams from "../components/Teams"
 import Testimonial from "../components/Testimonial";
+import Expertise from "../components/Expertise";
 import Contact from "../components/Contact";
 import SubscribeEmail from "../components/SubscribeEmail";
 
@@ -49,6 +50,7 @@ const Dashboard = ({ token, setToken, username }) => {
             <Route path="/article" element={<Article token={token} />} />
             <Route path="/teams" element={<Teams token={token} />} />
             <Route path="/testimonial" element={<Testimonial token={token} />} />
+            <Route path="/expertise" element={<Expertise token={token} />} />
             <Route path="/contact" element={<Contact token={token} />} />
             <Route path="/subscribe" element={<SubscribeEmail token={token} />} />
           </Routes>
