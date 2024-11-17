@@ -68,7 +68,7 @@ export default function Testimonial({ token }) {
       <div>
         <div>
           <h1 className="text-2xl font-bold mb-4">Testimonial</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+          <p>This is form input for Testimoni section.</p>
         </div>
         {/* FORM INPUT */}
         <form

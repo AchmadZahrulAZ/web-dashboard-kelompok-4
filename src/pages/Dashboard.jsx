@@ -11,8 +11,9 @@ import Portfolio from "../components/Portfolio";
 import Testimonial from "../components/Testimonial";
 import Contact from "../components/Contact";
 import SubscribeEmail from "../components/SubscribeEmail";
+import Profile from "../components/Profile";
 
-const Dashboard = ({ token, setToken, username }) => {
+const Dashboard = ({ token, setToken, username, name, password }) => {
   const [loading, setLoading] = useState(false); // State to track loading state
   const [error, setError] = useState(null); // State to track errors
   const [showSidebar, setShowSidebar] = useState(false); // State to track sidebar visibility
@@ -65,7 +66,8 @@ const Dashboard = ({ token, setToken, username }) => {
         <Sidebar showSidebar={showSidebar} onClick={resetHammburgerClick}/> {/* Pass showSidebar state */}
         <div className="flex flex-col w-full justify-center px-4 lg:px-16 py-6">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home username={username} />} />
+            <Route path="/profile" element={<Profile username={username} name={name} password={password} />} />
             <Route path="/about" element={<AboutUs token={token} />} />
             <Route path="/article" element={<Article token={token} />} />
             <Route path="/portfolio" element={<Portfolio token={token} />} />

@@ -83,7 +83,7 @@ export default function Article({ token }) {
       <div>
         <div>
           <h1 className="text-2xl font-bold mb-4">Article</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+          <p>This is form input for Article section.</p>
         </div>
         {/* FORM INPUT */}
         <form
