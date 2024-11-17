@@ -29,7 +29,7 @@ export default function AboutUs({token}) {
       <div>
         <div>
           <h1 className="text-2xl font-bold mb-4">About Us</h1>
-          <p>This is form input for About Us section.</p>
+          <p>Pelajari siapa kami dan bagaimana kami tumbuh bersama visi yang kuat</p>
         </div>
         {/* FORM INPUT */}
         <form
@@ -77,7 +77,7 @@ export default function AboutUs({token}) {
               />
             </div>
           </div>
-          {/* sUBMIT BUTTON */}
+          {/* SUBMIT BUTTON */}
           <Button type="submit" text="Submit" className={"bg-darkblue"} />
         </form>
       </div>

@@ -60,7 +60,7 @@ export default function Teams({ token }) {
       <div>
         <div>
           <h1 className="text-2xl font-bold mb-4">Teams</h1>
-          <p>This is form input for Teams section.</p>
+          <p>Kenali orang-orang hebat di balik kesuksesan kami</p>
         </div>
         {/* FORM INPUT */}
         <form
@@ -101,7 +101,7 @@ export default function Teams({ token }) {
                 type="file"
                 name="image"
                 id="image"
-                accept=".jpg, .jpeg, .png"
+                accept=".jpg, .jpeg, .png, .webp"
                 onChange={handleFileChange}
                 className={`px-2 file file:right-0 ${isEdit ? "file:bg-peachred" : "file:bg-darkblue"} file:text-white file:border-none file:rounded-lg file:px-2 file:py-1 file:mr-2 file:cursor-pointer`}
               />
@@ -166,7 +166,7 @@ export default function Teams({ token }) {
                         <h1 className="text-lg text-peachred font-bold text-center">
                           {team.name}
                         </h1>
-                        <h1 className="text-md">{team.title}</h1>
+                        <h1 className="text-sm">{team.title}</h1>
                       </div>
                     </div>
                   </div>

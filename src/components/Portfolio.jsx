@@ -64,7 +64,7 @@ export default function Portfolio({ token }) {
       <div>
         <div>
           <h1 className="text-2xl font-bold mb-4">Portfolio</h1>
-          <p>This is form input for Portfolio section.</p>
+          <p>Lihat proyek-proyek yang telah kami selesaikan dengan kualitas terbaik</p>
         </div>
         {/* FORM INPUT */}
         <form

@@ -7,7 +7,7 @@ export default function Contact({ token }) {
   return (
     <div className="font-raleway p-4">
       <h1 className="text-2xl font-bold mb-4">Contact</h1>
-      <p className="mb-4">Berikut adalah data yang masuk melalui API:</p>
+      <p className="mb-4">Berikut adalah data yang masuk:</p>
 
       {/* Menampilkan error jika ada */}
       {error && <div className="text-red-500 mb-4">{error}</div>}

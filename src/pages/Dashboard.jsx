@@ -9,9 +9,11 @@ import Home from "../components/Home";
 import Teams from "../components/Teams"
 import Portfolio from "../components/Portfolio";
 import Testimonial from "../components/Testimonial";
+import Expertise from "../components/Expertise";
 import Contact from "../components/Contact";
 import SubscribeEmail from "../components/SubscribeEmail";
 import Profile from "../components/Profile";
+import WhatWeDo from "../components/WhatWeDo";
 
 const Dashboard = ({ token, setToken, username, name, password }) => {
   const [loading, setLoading] = useState(false); // State to track loading state
@@ -73,8 +75,10 @@ const Dashboard = ({ token, setToken, username, name, password }) => {
             <Route path="/portfolio" element={<Portfolio token={token} />} />
             <Route path="/teams" element={<Teams token={token} />} />
             <Route path="/testimonial" element={<Testimonial token={token} />} />
+            <Route path="/expertise" element={<Expertise token={token} />} />
             <Route path="/contact" element={<Contact token={token} />} />
             <Route path="/subscribe" element={<SubscribeEmail token={token} />} />
+            <Route path="/what-we-do" element={<WhatWeDo token={token} />} />
           </Routes>
         </div>
       </div>
