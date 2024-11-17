@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import useArticle from "../hooks/useArticle";
 import Button from "./Buttons/Button";
 
-export default function AboutUs({ token }) {
+export default function Article({ token }) {
   const { dataArticle, error, loading, postData, updateData, deleteData } = useArticle();
   const [title, setTitle] = useState("");
   const [writer, setWriter] = useState("");

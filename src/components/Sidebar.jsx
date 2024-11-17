@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Sidebar = ({ showSidebar }) => {
+const Sidebar = ({ showSidebar, onClick }) => {
   const [activeLink, setActiveLink] = useState("");
   const navLinks = [
     {
@@ -52,11 +52,12 @@ const Sidebar = ({ showSidebar }) => {
 
   return (
     <div className={`${showSidebar ? "flex z-10": "hidden"} lg:flex flex-col left-0 lg:w-56`}>
-      <div className="fixed flex bg-white h-screen flex-col gap-4 p-6">
+      <div className={`fixed flex backdrop-blur-sm ${showSidebar && "bg-darkblue/[.3] w-full"} h-screen`} >
+        <div className={`${showSidebar && "bg-white"} flex-col gap-4 p-6`}>
         <Link to="/">
         <div onClick={resetLinkClick} className="text-md text-peachred/[0.85] hover:text-peachred font-bold">Dashboard</div>
         </Link>
-        <ul className="font-raleway text-white/[.6] flex flex-col border-l">
+        <ul onClick={onClick} className="font-raleway border-white flex flex-col border-l">
           {navLinks.map((links, index) => (
             <Link to={links.link} key={index}>
               <li
@@ -72,6 +73,7 @@ const Sidebar = ({ showSidebar }) => {
             </Link>
           ))}
         </ul>
+        </div>
       </div>
     </div>
   );
