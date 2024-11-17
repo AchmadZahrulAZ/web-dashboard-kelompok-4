@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react"; // Import React and hooks
 import DOMPurify from "dompurify"; // Import DOMPurify to sanitize input
 import LoginModal from "../components/LoginModal"; // Import LoginModal component
 import { login, register } from "../utils/api"; // Import API functions for login and registration
-import "bootstrap/dist/css/bootstrap.min.css"
-import "bootstrap/dist/js/bootstrap.bundle.min.js"
 
-const Login = ({ setToken, setUsername }) => {
+const Login = ({ setToken, setUsername, setName, setPassword }) => {
   const [isLogin, setIsLogin] = useState(true); // State to toggle between login and register mode
   const [form, setForm] = useState({
     username: "",
@@ -60,9 +58,13 @@ const Login = ({ setToken, setUsername }) => {
         if (isLogin) {
           const token = res.token;
           const username = form.username;
+          const name = form.name;
+          const password = form.password;
           localStorage.setItem("token", token); // Store token in localStorage
           setToken(token); // Set token in parent component's state
           setUsername(username); // Set username in parent component's state
+          setName(name); // Set username in parent component's state
+          setPassword(password); // Set username in parent component's state
         } else {
           alert("Register success"); // Notify user about successful registration
           setIsLogin(true); // Switch back to Login form
