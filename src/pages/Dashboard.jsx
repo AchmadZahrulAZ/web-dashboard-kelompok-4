@@ -12,6 +12,7 @@ import Testimonial from "../components/Testimonial";
 import Expertise from "../components/Expertise";
 import Contact from "../components/Contact";
 import SubscribeEmail from "../components/SubscribeEmail";
+import WhatWeDo from "../components/WhatWeDo";
 
 const Dashboard = ({ token, setToken, username }) => {
   const [loading, setLoading] = useState(false); // State to track loading state
@@ -75,6 +76,7 @@ const Dashboard = ({ token, setToken, username }) => {
             <Route path="/expertise" element={<Expertise token={token} />} />
             <Route path="/contact" element={<Contact token={token} />} />
             <Route path="/subscribe" element={<SubscribeEmail token={token} />} />
+            <Route path="/what-we-do" element={<WhatWeDo token={token} />} />
           </Routes>
         </div>
       </div>

@@ -29,7 +29,7 @@ export default function AboutUs({token}) {
       <div>
         <div>
           <h1 className="text-2xl font-bold mb-4">About Us</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+          <p>Pelajari siapa kami dan bagaimana kami tumbuh bersama visi yang kuat</p>
         </div>
         {/* FORM INPUT */}
         <form
