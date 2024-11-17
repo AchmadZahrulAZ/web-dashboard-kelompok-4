@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import useTeams from "../hooks/useTeams";
+import Button from "./Buttons/Button";
 
 export default function AboutUs({ token }) {
   const { dataTeams, error, loading, postData, updateData, deleteData } = useTeams();
@@ -107,12 +108,7 @@ export default function AboutUs({ token }) {
             </div>
           </div>
           {/* SUBMIT BUTTON */}
-          <button
-            type="submit"
-            className={`${isEdit ? "bg-peachred" : "bg-darkblue"} text-white px-4 rounded-lg min-h-12`}
-          >
-            {isEdit ? "Edit" : "Submit"}
-          </button>
+          <Button type="submit" text={isEdit ? "Edit" : "Submit"} className={isEdit ? "bg-peachred" : "bg-darkblue"} />
         </form>
       </div>
       {/* ERROR MESSAGE */}

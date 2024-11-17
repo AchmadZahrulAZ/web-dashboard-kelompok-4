@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useAboutUs from "../hooks/useAbout";
+import Button from "./Buttons/Button";
 
 export default function AboutUs({token}) {
   const { dataAbout, error, postData, updateData } = useAboutUs();
@@ -33,7 +34,7 @@ export default function AboutUs({token}) {
         {/* FORM INPUT */}
         <form
           onSubmit={handleSubmit}
-          className="flex justify-center items-end gap-2 w-full py-10"
+          className="flex flex-wrap justify-end items-end gap-2 w-full py-10"
         >
           <div className="flex flex-col">
             <label htmlFor="title" className="text-md font-bold mb-2">
@@ -77,12 +78,7 @@ export default function AboutUs({token}) {
             </div>
           </div>
           {/* sUBMIT BUTTON */}
-          <button
-            type="submit"
-            className="bg-darkblue text-white px-2 rounded-lg min-h-12"
-          >
-            {dataAbout ? "Update" : "Submit"}
-          </button>
+          <Button type="submit" text="Submit" className={"bg-darkblue"} />
         </form>
       </div>
       {/* ERROR MESSAGE */}

@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import useTestimonial from "../hooks/useTestimonial";
+import Button from "./Buttons/Button";
 
 export default function AboutUs({ token }) {
   const { dataTestimonial, error, loading, postData, updateData, deleteData } = useTestimonial();
@@ -27,13 +28,13 @@ export default function AboutUs({ token }) {
     deleteData(id, token);
   };
 
-  const handleEdit = (team) => {
-    setTitle(team.title);
-    setName(team.name);
-    setImageUrl(team.imageUrl);
-    setMessage(team.message);
-    setDate(team.date);
-    setEditId(team.id);
+  const handleEdit = (testimoni) => {
+    setTitle(testimoni.title);
+    setName(testimoni.name);
+    setImageUrl(testimoni.imageUrl);
+    setMessage(testimoni.message);
+    setDate(testimoni.date);
+    setEditId(testimoni.id);
     setIsEdit(true);
     scrollToTop();
   };
@@ -74,7 +75,7 @@ export default function AboutUs({ token }) {
           onSubmit={handleSubmit}
           className="flex flex-wrap justify-end items-end gap-2 w-full py-10"
         >
-          <div className="flex flex-col flex-grow">
+          <div className="flex flex-col">
             <label htmlFor="name" className="text-md font-bold mb-2">
               Name
             </label>
@@ -99,7 +100,7 @@ export default function AboutUs({ token }) {
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col flex-grow">
             <label htmlFor="message" className="text-md font-bold mb-2">
               Message
             </label>
@@ -117,7 +118,7 @@ export default function AboutUs({ token }) {
               Date
             </label>
             <input
-              type="text"
+              type="date"
               className="border border-gray-300 px-2 min-h-12 rounded-lg"
               name="date"
               id="date"
@@ -141,12 +142,7 @@ export default function AboutUs({ token }) {
             </div>
           </div>
           {/* SUBMIT BUTTON */}
-          <button
-            type="submit"
-            className={`${isEdit ? "bg-peachred" : "bg-darkblue"} text-white px-4 rounded-lg min-h-12`}
-          >
-            {isEdit ? "Edit" : "Submit"}
-          </button>
+          <Button type="submit" text={isEdit ? "Edit" : "Submit"} className={isEdit ? "bg-peachred" : "bg-darkblue"} />
         </form>
       </div>
       {/* ERROR MESSAGE */}
@@ -185,8 +181,8 @@ export default function AboutUs({ token }) {
             </tr>
           </thead>
           <tbody>
-            {dataTestimonial.map((testimonial, index) => (
-              <tr key={testimonial.id}>
+            {dataTestimonial.map((testimoni, index) => (
+              <tr key={testimoni.id}>
                 <td className="border border-gray-300">
                   <div className="flex justify-center">{index + 1}</div>
                 </td>
@@ -195,18 +191,18 @@ export default function AboutUs({ token }) {
                     <div className="w-48 shadow-md min-h-60 rounded-lg overflow-hidden">
                       <div className="w-full h-36 overflow-hidden">
                         <img
-                          src={testimonial.imageUrl}
-                          alt="Testimonial"
+                          src={testimoni.imageUrl}
+                          alt="testimoni"
                           className="object-cover"
                         />
                       </div>
                       <div className="flex flex-col justify-center items-center py-4">
                         <h1 className="text-lg text-peachred font-bold text-center">
-                          {testimonial.name}
+                          {testimoni.name}
                         </h1>
-                        <h1 className="text-base">{testimonial.title}</h1>
-                        <h1 className="text-sm">{testimonial.date}</h1>
-                        <h1 className="text-base text-center">&quot;{testimonial.message}&quot;</h1>
+                        <h1 className="text-base">{testimoni.title}</h1>
+                        <h1 className="text-sm">{testimoni.date}</h1>
+                        <h1 className="text-base text-center">&quot;{testimoni.message}&quot;</h1>
                       </div>
                     </div>
                   </div>
@@ -214,13 +210,13 @@ export default function AboutUs({ token }) {
                 <td className="border border-gray-300 p-2">
                   <div className="flex flex-col justify-center items-center text-white gap-2 px-4">
                     <button
-                      onClick={() => handleEdit(testimonial)}
+                      onClick={() => handleEdit(testimoni)}
                       className="bg-darkblue p-2 rounded-lg w-full"
                     >
                       Edit
                     </button>
                     <button
-                      onClick={() => handleDelete(testimonial.id)}
+                      onClick={() => handleDelete(testimoni.id)}
                       className="bg-peachred p-2 rounded-lg w-full"
                     >
                       Delete
